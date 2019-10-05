@@ -1,34 +1,34 @@
 import React from 'react';
 export default function () {
     return (
-        <div>             
-            <nav 
+        <div>
+            <nav
                 className="navbar sticky-top navbar-dark navbar-expand-lg"
                 style={{ backgroundColor: 'balck' }}
             >
-                <button 
-                        className="navbar-toggler" 
-                        type="button" 
-                        data-toggle="collapse" 
-                        data-target="#main-nav-menu" 
-                        aria-controls="main-nav-menu" 
-                        aria-expanded="false" 
-                        aria-label="Показать меню"
+                <button
+                    className="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#main-nav-menu"
+                    aria-controls="main-nav-menu"
+                    aria-expanded="false"
+                    aria-label="Показать меню"
                 >
-                    <span className="navbar-toggler-icon"/>
+                    <span className="navbar-toggler-icon" />
                 </button>
-                <a 
-                    className="navbar-brand" 
+                <a
+                    className="navbar-brand"
                     href="/"
                 >
-                    <img 
-                        src="@{StaticR images_logo_header_png}" 
-                        style={{ maxHeight: '20px' }} 
+                    <img
+                        src="@{StaticR images_logo_header_png}"
+                        style={{ maxHeight: '20px' }}
                         alt="OutBirds"
                     />
                 </a>
-                <div 
-                    id="main-nav-menu" 
+                <div
+                    id="main-nav-menu"
                     className="collapse navbar-collapse justify-content-between"
                 >
                     <ul className="navbar-nav">
@@ -39,10 +39,10 @@ export default function () {
                         </li>
                     </ul>
                     <span className="navbar-text d-flex d-lg-none">
-                        <i className="fas fa-wallet align-self-center"/>
+                        <i className="fas fa-wallet align-self-center" />
                         <span className="d-block ml-2"> _[MsgBalance]</span>
                     </span>
-                    <span 
+                    <span
                         className="navbar-text font-weight-bold d-flex d-lg-none wallet-balance-val"
                     >
                         #[cents2dblT cents]&nbsp;
@@ -68,27 +68,27 @@ export default function () {
                         </li>
                     </ul>
                     <ul className="navbar-nav d-flex">
-                        <li 
-                            id="#navWalletDropdownId" 
+                        <li
+                            id="#navWalletDropdownId"
                             className="nav-item dropdown"
                         >
                             <a
-                                    id="#navWalletDropdownId-toggle"
-                                    className="nav-link dropdown-toggle"
-                                    data-toggle="dropdown"
-                                    href="#"
-                                    role="button"
-                                    aria-expanded="false"
-                                    aria-haspopup="true"
+                                id="#navWalletDropdownId-toggle"
+                                className="nav-link dropdown-toggle"
+                                data-toggle="dropdown"
+                                href="#"
+                                role="button"
+                                aria-expanded="false"
+                                aria-haspopup="true"
                             >
-                                <i className="fas fa-wallet"/>
+                                <i className="fas fa-wallet" />
                             </a>
-                            <div 
-                                className="dropdown-menu" 
+                            <div
+                                className="dropdown-menu"
                                 aria-labelledby="#navWalletDropdownId-toggle"
                             >
-                                <a 
-                                    className="dropdown-item font-weight-bold wallet-balance-val" 
+                                <a
+                                    className="dropdown-item font-weight-bold wallet-balance-val"
                                     href="#"
                                 >
                                     #[cents2dblT cents]&nbsp;
@@ -98,8 +98,8 @@ export default function () {
                                 </a>
                             </div>
                         </li>
-                        <li 
-                            id="#navManageDropdownId" 
+                        <li
+                            id="#navManageDropdownId"
                             className="nav-item dropdown"
                         >
                             <a
@@ -113,40 +113,40 @@ export default function () {
                             >
                                 _[MsgManage]
                             </a>
-                            <div 
-                                className="dropdown-menu" 
+                            <div
+                                className="dropdown-menu"
                                 aria-labelledby="#navManageDropdownId-toggle"
                             >
-                                <span 
+                                <span
                                     className="navbar-text d-flex px-3 text-uppercase"
                                 >
                                     <i className="fas fa-pen-nib align-self-center" />
-                                    <span className="d-block ml-2"> 
+                                    <span className="d-block ml-2">
                                         _[MsgEditMenuTitle]
                                     </span>
                                 </span>
-                                        
+
                                 <a className="dropdown-item" href="@{route}">
                                     #[label]
-                                </a>    
-                                <span 
+                                </a>
+                                <span
                                     className="navbar-text d-flex px-3 text-uppercase"
                                 >
-                                    <i className="fas fa-donate align-self-center"/>
-                                    <span className="d-block ml-2"> 
+                                    <i className="fas fa-donate align-self-center" />
+                                    <span className="d-block ml-2">
                                         _[MsgRequestsMenuTitle]
                                     </span>
                                 </span>
                                 <a className="dropdown-item" href="@{route}">
                                     #[label]
-                                </a>        
+                                </a>
                                 <a className="dropdown-item" href="@{route}">
                                     #[label]
                                 </a>
                             </div>
                         </li>
-                        <li 
-                            id="#navUserDropdownId" 
+                        <li
+                            id="#navUserDropdownId"
                             className="nav-item dropdown mr-5"
                         >
                             <a
@@ -160,10 +160,10 @@ export default function () {
                             >
                                 #[userName]
                             </a>
-                            <div 
-                                className="dropdown-menu" 
+                            <div
+                                className="dropdown-menu"
                                 aria-labelledby="#navUserDropdownId-toggle"
-                            >        
+                            >
                                 <a className="dropdown-item" href="@{route}">
                                     #[label]
                                 </a>
@@ -172,11 +172,11 @@ export default function () {
                     </ul>
                 </div>
             </nav>
-            
+
             <div className="container-fluid my-3">
                 <div className="row">
                     <div className="col-11 mx-auto">
-                        <ul className="breadcrumb">                    
+                        <ul className="breadcrumb">
                             <li className="breadcrumb-item">
                                 <a href="@{fst bc}">#[snd bc]</a>
                             </li>
@@ -195,9 +195,9 @@ export default function () {
                 </div>
             </div>
 
-            
+
             ^[widget]
-            
+
             <div className="container">
                 <div className="row">
                     <div className="col-md-12">
@@ -214,9 +214,9 @@ export default function () {
                         </p>
                     </div>
                     <div className="col-sm text-center">
-                        <a 
-                            className="mx-2" 
-                            href="mailto:#{supportEmail}" 
+                        <a
+                            className="mx-2"
+                            href="mailto:#{supportEmail}"
                             title="_{MsgSendEmail}"
                         >
                             <i className="far fa-envelope-open" />
@@ -224,19 +224,19 @@ export default function () {
                         </a>
                     </div>
                     <div className="col-sm text-center">
-                        <a 
-                            className="mx-2" 
-                            href="https://t.me/outb_support" 
+                        <a
+                            className="mx-2"
+                            href="https://t.me/outb_support"
                             title="_{MsgToTelegramChat}"
                         >
-                            <i className="far fa-paper-plane"/>
+                            <i className="far fa-paper-plane" />
                             @outb_support
                         </a>
                     </div>
                 </div>
                 <div className="row">
-                    <div 
-                        className="col pt-3" 
+                    <div
+                        className="col pt-3"
                         style={{ background: '#e9ecef' }}
                     >
                         <p className="text-center">
