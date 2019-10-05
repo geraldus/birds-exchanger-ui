@@ -172,7 +172,6 @@ export default function () {
                     </ul>
                 </div>
             </nav>
-
             <div className="container-fluid my-3">
                 <div className="row">
                     <div className="col-11 mx-auto">
@@ -194,10 +193,7 @@ export default function () {
                     </div>
                 </div>
             </div>
-
-
             ^[widget]
-
             <div className="container">
                 <div className="row">
                     <div className="col-md-12">
@@ -205,7 +201,6 @@ export default function () {
                     </div>
                 </div>
             </div>
-
             <footer className="footer mt-2 pt-3 container-fluid">
                 <div className="row mb-2">
                     <div className="col-sm text-center">
