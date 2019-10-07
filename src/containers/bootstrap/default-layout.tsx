@@ -1,5 +1,26 @@
 import React from 'react';
-export default function () {
+import { RouteComponentProps } from 'react-router';
+import navbarLogo from '@/assets/logo/logo-header.png';
+import { NavLink } from 'react-router-dom';
+
+
+export const pageWrap: React.FC = (props) => {
+    return (
+        <div className="container">
+            <div className="row">
+                <div className="col-md-12">
+                    {props.children}
+                </div>
+            </div>
+        </div>
+    )
+}
+
+
+export interface BootstrapLayoutProps extends RouteComponentProps {
+}
+
+const layoutContainer: React.FC<BootstrapLayoutProps> = (props) => {
     return (
         <div>
             <nav
@@ -17,16 +38,16 @@ export default function () {
                 >
                     <span className="navbar-toggler-icon" />
                 </button>
-                <a
+                <NavLink
                     className="navbar-brand"
-                    href="/"
+                    to="/"
                 >
                     <img
-                        src="@{StaticR images_logo_header_png}"
+                        src={navbarLogo}
                         style={{ maxHeight: '20px' }}
                         alt="OutBirds"
                     />
-                </a>
+                </NavLink>
                 <div
                     id="main-nav-menu"
                     className="collapse navbar-collapse justify-content-between"
@@ -193,14 +214,7 @@ export default function () {
                     </div>
                 </div>
             </div>
-            ^[widget]
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-12">
-                        ^[widget]
-                    </div>
-                </div>
-            </div>
+            {props.children}
             <footer className="footer mt-2 pt-3 container-fluid">
                 <div className="row mb-2">
                     <div className="col-sm text-center">
@@ -249,3 +263,5 @@ export default function () {
         </div>
     );
 }
+
+export default layoutContainer
