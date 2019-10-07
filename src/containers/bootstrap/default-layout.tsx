@@ -18,6 +18,7 @@ export const pageWrap: React.FC = (props) => {
 
 
 export interface BootstrapLayoutProps extends RouteComponentProps {
+    appVersion?: string
 }
 
 const layoutContainer: React.FC<BootstrapLayoutProps> = (props) => {
@@ -251,7 +252,7 @@ const layoutContainer: React.FC<BootstrapLayoutProps> = (props) => {
                         <p className="text-center">
                             _[MsgCurrencyExchangeService] «OutBirds»
                             <small className="text-muted">
-                                v#[appVersion]
+                                v{props.appVersion}
                                 <small className="text-lowercase">
                                     _[MsgVerPublicBeta]
                                 </small>
