@@ -22,7 +22,7 @@ const config: IConfig = {
                 dll: false,
                 locale: {
                     enable: true,
-                    default: 'en-US',
+                    default: 'ru-RU',
                 },
                 routes: {
                     exclude: [
