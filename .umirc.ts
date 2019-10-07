@@ -1,5 +1,13 @@
 import { IConfig } from 'umi-types';
+import packageJson from './package.json';
 
+
+const DYN_API_ADDR = 'localhost'
+const DEF_API_PORT = '3000'
+
+const apiAddr = process.env['BACKEND_API'] || `http://${DYN_API_ADDR}:${DEF_API_PORT}`
+// tslint:disable-next-line: no-console
+console.log('Using following back-end API URL: %s.  You can change setting env BACKEND_API var.', apiAddr)
 // ref: https://umijs.org/config/
 const config: IConfig = {
     treeShaking: true,
@@ -27,6 +35,16 @@ const config: IConfig = {
                 },
             }],
     ],
+    proxy: {
+        '/api': {
+            'target': apiAddr
+        }
+    },
+    chainWebpack(config, { webpack }) {
+            config
+            .output
+            .chunkFilename(`[name].chunk.js?etag=${packageJson.version}`)
+    },
 }
 
 export default config;
