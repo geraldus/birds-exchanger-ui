@@ -1,4 +1,7 @@
 import React from 'react';
+import homeLead from '@/assets/logo/logo-home-lead.png';
+
+
 export default function () {
     return (
         <div>
@@ -9,7 +12,7 @@ export default function () {
                             <img 
                                 id="main-promo" 
                                 className="mw-100" 
-                                src="@[StaticR images_logo__sayt_png]" 
+                                src={homeLead} 
                                 alt="OutBirds | Site Logo"
                             />
                         </div>
@@ -58,7 +61,10 @@ export default function () {
                     </div>
                     <div className="row mt-3">
                         <div className="col">
-                            <form method="post" action="@{ExchangeOrderCreateR}" enctype="">
+                            <form 
+                                method="post" 
+                                action="@{ExchangeOrderCreateR}" 
+                            >
                                 ^[orderCreateFormW]
                                 <button
                                     className="
@@ -126,7 +132,12 @@ export default function () {
                     </div>
                 </div>
             </div>
-            <div id="clickable-order-modal" className="modal fade" tabindex="-1" role="dialog">
+            <div 
+                id="clickable-order-modal" 
+                className="modal fade" 
+                tabIndex={-1} 
+                role="dialog"
+            >
                 <div className="modal-dialog modal-lg modal-dialog-centered" role="document">
                     <div className="modal-content">
                         <div className="modal-body">
@@ -141,11 +152,10 @@ export default function () {
                                 ^[modalOrderCreateFormW]
                                 <div className="row">
                                     <button 
-                                        className="
-                                            btn btn-outline-warning 
-                                            btn-lg text-lowercase mx-auto" 
-                                        type="submit">
-                                            _[MsgOneClickExchange]
+                                        className="btn btn-outline-warning btn-lg text-lowercase mx-auto" 
+                                        type="submit"
+                                    >
+                                        _[MsgOneClickExchange]
                                     </button>
                                 </div>
                                 <div className="text-muted mx-auto">
