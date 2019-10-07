@@ -10,8 +10,8 @@ export default function () {
                                 id="main-promo" 
                                 className="mw-100" 
                                 src="@[StaticR images_logo__sayt_png]" 
-                                alt="OutBirds | Site Logo">
-                            </img>
+                                alt="OutBirds | Site Logo"
+                            />
                         </div>
                     <div className="container mt-3">
                         <div className="alert alert-warning" id="message">
@@ -109,21 +109,18 @@ export default function () {
                         <div>
                             <p className="text-center text-muted">
                                 _[MsgOperationExchangeShort]&nbsp;#[renderFeeAsPct defaultExchangeFee]%
-                                <br>
+                                <br/>
                                 _[MsgOperationWithdrawShort]&nbsp;#[currencyCodeT rurC]&nbsp;#[renderFeeAsPct defRurWithdrawalFee]%#
                                 \&nbsp;|&nbsp;#
                                 \_[MsgOperationDepositShort]&nbsp;#[currencyCodeT rurC]&nbsp;#[renderFeeAsPct defRurDepositFee]%
-                                </br>
-                                <br>
+                                <br/>
                                 _[MsgOperationWithdrawShort]&nbsp;#[currencyCodeT pzmC]&nbsp;#[renderFeeAsPct defPzmWithdrawalFee]%#
                                 \&nbsp;|&nbsp;#
                                 \_[MsgOperationDepositShort]&nbsp;#[currencyCodeT pzmC]&nbsp;#[renderFeeAsPct defPzmDepositFee]%
-                                </br>
-                                <br>
+                                <br/>
                                 _[MsgOperationWithdrawShort]&nbsp;#[currencyCodeT ourC]&nbsp;#[renderFeeAsPct defOurWithdrawalFee]%#
                                 \&nbsp;|&nbsp;#
                                 \_[MsgOperationDepositShort]&nbsp;#[currencyCodeT ourC]&nbsp;#[renderFeeAsPct defOurDepositFee]%
-                                </br>
                             </p>
                         </div>
                     </div>

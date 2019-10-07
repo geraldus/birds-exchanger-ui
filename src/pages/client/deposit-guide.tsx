@@ -9,18 +9,20 @@ export default function () {
                             _[MsgTransfer]
                             <span className="font-weight-bold">
                                 #[cents2dblT cents]
-                            </span> 
-                            <small>
-                                #[currSign curr]
-                            </small>
-                            #[desc] #
-                            <span className="font-weight-bold" style={ { wordBreak: 'break-all' } }>
+                                <small>
+                                    #[currSign curr]
+                                </small>
+                            </span>
+                            #[desc]
+                            <span 
+                                className="font-weight-bold" 
+                                style={{ wordBreak: 'break-all' }}
+                            >
                                 #[addr]
                             </span>
                         </h4>
-                        <hr>
+                        <hr/>
                         _[MsgDepositPayerAddressPrompt]
-                        </hr>
                     </div>
                 </div>
                 <dl className="row justify-content-center">
@@ -51,7 +53,7 @@ export default function () {
                                 />
                                 <div className="input-group-append">
                                     <span className="input-group-text" onClick="copyAddressAction(this)">
-                                        <i className="far fa-clipboard"/>
+                                        <i className="far fa-clipboard" />
                                     </span>
                                 </div>
                             </div>
@@ -68,9 +70,9 @@ export default function () {
                     <dd className="col-12 col-md-5">
                         <div className="form-group">
                             <div className="input-group">
-                                <input 
-                                    className="form-control" 
-                                    readOnly={true} 
+                                <input
+                                    className="form-control"
+                                    readOnly={true}
                                     value="#[cents2dblT cents]"
                                 />
                                 <div className="input-group-append">

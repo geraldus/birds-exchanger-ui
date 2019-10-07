@@ -7,9 +7,8 @@ export default function () {
             </h3>
 
             <form className="mt-3">
-                <h5>_[MsgPassword]
+                <h5>_[MsgPassword]</h5>
                 ^[formWidget]
-                </h5>
             </form>
         </div>
     );
