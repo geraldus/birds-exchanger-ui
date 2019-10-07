@@ -26,7 +26,7 @@ const layoutContainer: React.FC<BootstrapLayoutProps> = (props) => {
         <div>
             <nav
                 className="navbar sticky-top navbar-dark navbar-expand-lg"
-                style={{ backgroundColor: 'balck' }}
+                style={{ backgroundColor: 'black' }}
             >
                 <button
                     className="navbar-toggler"
