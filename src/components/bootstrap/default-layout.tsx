@@ -8,13 +8,14 @@ import { withRouter } from 'react-router';
 import { AppModel, AppConfig } from '@/models/app';
 import { connect } from 'dva';
 
+
 type Props = BootstrapLayoutProps & {
-    appConfig: AppConfig;
-};
+    appConfig: AppConfig
+}
 
 export class BootstrapLayout extends React.Component<Props> {
     render() {
-        const { children, ...props } = this.props;
+        const { children, ...props } = this.props
         const { childrenWrap, breadcrumbWrap } =
             props.location.pathname === '/'
                 ? {
@@ -24,22 +25,22 @@ export class BootstrapLayout extends React.Component<Props> {
                 : {
                       childrenWrap: pageWrap({ children: children }),
                       breadcrumbWrap: breadcrumb({}),
-                  };
+                  }
         return layoutContainer({
             children: childrenWrap,
             breadcrumb: breadcrumbWrap,
             appVersion: this.props.appConfig.app.version,
             ...props,
-        });
+        })
     }
 }
 
 const mapStateToProps = (state: { app: AppModel }) => {
     return {
         appConfig: state.app.config,
-    };
-};
+    }
+}
 
-const connectedLayout = connect(mapStateToProps)(BootstrapLayout);
+const connectedLayout = connect(mapStateToProps)(BootstrapLayout)
 
-export default withRouter(connectedLayout);
+export default withRouter(connectedLayout)
