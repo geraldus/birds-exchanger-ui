@@ -9,10 +9,10 @@ export default function () {
                 <div className="container mt-2">
                     <div className="row">
                         <div id="mainlogo" className="col-8 col-sm-6 mx-auto my-2">
-                            <img 
-                                id="main-promo" 
-                                className="mw-100" 
-                                src={homeLead} 
+                            <img
+                                id="main-promo"
+                                className="mw-100"
+                                src={homeLead}
                                 alt="OutBirds | Site Logo"
                             />
                         </div>
@@ -61,9 +61,9 @@ export default function () {
                     </div>
                     <div className="row mt-3">
                         <div className="col">
-                            <form 
-                                method="post" 
-                                action="@{ExchangeOrderCreateR}" 
+                            <form
+                                method="post"
+                                action="@{ExchangeOrderCreateR}"
                             >
                                 ^[orderCreateFormW]
                                 <button
@@ -132,10 +132,10 @@ export default function () {
                     </div>
                 </div>
             </div>
-            <div 
-                id="clickable-order-modal" 
-                className="modal fade" 
-                tabIndex={-1} 
+            <div
+                id="clickable-order-modal"
+                className="modal fade"
+                tabIndex={-1}
                 role="dialog"
             >
                 <div className="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -151,8 +151,8 @@ export default function () {
                                 </div>
                                 ^[modalOrderCreateFormW]
                                 <div className="row">
-                                    <button 
-                                        className="btn btn-outline-warning btn-lg text-lowercase mx-auto" 
+                                    <button
+                                        className="btn btn-outline-warning btn-lg text-lowercase mx-auto"
                                         type="submit"
                                     >
                                         _[MsgOneClickExchange]
