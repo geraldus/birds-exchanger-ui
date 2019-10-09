@@ -13,7 +13,10 @@ export interface AppAuth {
 export interface AppConfig {
     auth: AppAuth,
     app: {
-        version: string
+        version: {
+            number: string,
+            extraLabel?: string
+        }
     }
 }
 
@@ -24,7 +27,7 @@ export interface AppModel {
 const initialState: AppModel = {
     config: {
         auth: { guest: true },
-        app: { version: '0.0.0' }
+        app: { version: { number: '0.0.0' } }
     }
 }
 

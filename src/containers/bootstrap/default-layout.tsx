@@ -39,11 +39,25 @@ export const breadcrumb: React.FC = () => {
 }
 
 export interface BootstrapLayoutProps extends RouteComponentProps {
-    appVersion?: string;
-    breadcrumb?: ReactNode;
+    appVersion?: {
+        number: string,
+        extraLabel?: string
+    },
+    breadcrumb?: ReactNode
 }
 
 const layoutContainer: React.FC<BootstrapLayoutProps> = props => {
+    const appVerExtra = props.appVersion && props.appVersion.extraLabel || null
+    const appVersion = props.appVersion
+        ? (
+            <small className="text-muted">
+                v{props.appVersion.number}
+                {` `}
+                {appVerExtra && <small className="text-lowercase">{appVerExtra}</small>}
+            </small>
+        )
+        : null
+
     return (
         <div>
             <nav
@@ -212,10 +226,8 @@ const layoutContainer: React.FC<BootstrapLayoutProps> = props => {
                     <div className="col pt-3" style={{ background: '#e9ecef' }}>
                         <p className="text-center">
                             _[MsgCurrencyExchangeService] «OutBirds»
-                            <small className="text-muted">
-                                v{props.appVersion}
-                                <small className="text-lowercase">_[MsgVerPublicBeta]</small>
-                            </small>
+                            {` `}
+                            {appVersion}
                         </p>
                     </div>
                 </div>
