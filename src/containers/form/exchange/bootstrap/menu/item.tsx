@@ -16,7 +16,7 @@ export const NavTab: React.FC<Props> = (props) => {
     const { onClick } = props
     const classNames = [
         'nav-link',
-        (active ? 'active' : ''),
+        ...(active ? [ 'active' ] : []),
         ...(className ? className : '').split(' ')
     ].join(' ')
     return (

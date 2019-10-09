@@ -1,8 +1,12 @@
 import React from 'react';
-export default function () {
+
+
+const page: React.FC = () => {
     return (
         <div>
             Insert your HTML code here
         </div>
-    );
+    )
 }
+
+export default page

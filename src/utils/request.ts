@@ -10,7 +10,7 @@ import apis from '@/configs/apis';
 
 const timeout = 3000;
 
-const fetch = (options: any) => {
+const fetch = (options: any, ...rest: any) => {
     let {
         method = 'get',
         data,
@@ -46,6 +46,7 @@ const fetch = (options: any) => {
                 param: `${qs.stringify(data)}&callback`,
                 name: `jsonp_${new Date().getTime()}`,
                 timeout,
+                ...rest,
             }, (error, result) => {
                 if (error) {
                     reject(error)
@@ -61,15 +62,16 @@ const fetch = (options: any) => {
 
     switch (method.toLowerCase()) {
         case 'get':
-            return axios.get(url, { params: cloneData, timeout })
+            return axios.get(url, { params: cloneData, timeout, ...rest })
         case 'delete':
-            return axios.delete(url, { data: cloneData })
+            return axios.delete(url, { data: cloneData, ...rest })
         case 'post':
             return axios({
                 method: 'post',
                 headers: headers,
                 url: url,
                 data: cloneData,
+                ...rest,
             })
         case 'put':
             return axios.put(url, cloneData)
@@ -138,7 +140,7 @@ export default function request(options: any) {
     })
 }
 
-export const postRequest = (params, ...rest) => fetch({
+export const postRequest = (params: any, ...rest: any) => fetch({
     ...params,
     method: 'post'
 }, ...rest)

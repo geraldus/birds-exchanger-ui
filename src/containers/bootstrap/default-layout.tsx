@@ -3,6 +3,7 @@ import { RouteComponentProps } from 'react-router';
 import navbarLogo from '@/assets/logo/logo-header.png';
 import { NavLink } from 'react-router-dom';
 
+
 export const pageWrap: React.FC = props => {
     return (
         <div className="container">

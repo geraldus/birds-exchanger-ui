@@ -1,5 +1,5 @@
 import { AnyAction } from 'redux';
-import { EffectsCommandMap } from 'dva/index';
+import { EffectsCommandMap, SubscriptionAPI } from 'dva/index';
 import { fetchAppConfig } from '@/services/app';
 import produce from 'immer';
 
@@ -32,7 +32,7 @@ export default {
     namespace: 'app',
     state: Object.freeze(initialState),
     subscriptions: {
-        setup({ dispatch, history }) {
+        setup({ dispatch, history }: SubscriptionAPI) {
             history.listen((_) => {
                 dispatch({
                     type: 'getAppConfig',
