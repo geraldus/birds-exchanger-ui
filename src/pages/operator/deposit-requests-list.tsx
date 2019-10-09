@@ -1,103 +1,63 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+
+
 export default function () {
     return (
         <div>
-            <table 
-                className="request-list table table-striped"
-            >
+            <table className="request-list table table-striped">
                 <thead>
                     <tr>
-                        <th 
-                            className="align-middle"
-                        >
-                            Создана
-                        </th>
-                        <th 
-                            className="align-middle"
-                        >
+                        <th className="align-middle">Создана</th>
+                        <th className="align-middle">
                             Сумма пополнения (-%)
-                            <br/>
-                            <small>
-                                Cумма к начислению (*K)
-                            </small>
+                            <br />
+                            <small>Cумма к начислению</small>
                         </th>
-                        <th 
-                            className="align-middle"
-                        >
+                        <th className="align-middle">
                             Метод перевода
-                            <br/>
-                            <small>
-                                Пользователь
-                            </small>
+                            <br />
+                            <small>Пользователь</small>
                         </th>
-                        <th 
-                            className="align-middle text-center"
-                        >
+                        <th className="align-middle text-center">
                             _[MsgDepositPayerAddress]
-                            <br/>
-                            <small 
-                                className="text-muted text-uppercase"
-                            >
+                            <br />
+                            <small className="text-muted text-uppercase">
                                 _[MsgDepositTransactionCode]
                             </small>
                         </th>
-                        <th 
-                            className="align-middle"
-                        />
+                        <th className="align-middle" />
                     </tr>
                 </thead>
                 <tbody>
-                        <tr
-                            className="request-data-row"
-                            title="_[MsgProcessRequest]"
-                            data-target="#req-modal-#{fromSqlKey reqId}"
-                        >
-                            <td 
-                                className="text-muted"
-                            >
-                                <small>
-                                    #[reqDateT req]
-                                </small>
+                    <tr
+                        className="request-data-row"
+                        title="_[MsgProcessRequest]"
+                        data-target="#req-modal-#{fromSqlKey reqId}"
+                    >
+                        <td className="text-muted">
+                            <small>#[reqDateT req]</small>
+                        </td>
+                        <td>#[renderSums req]</td>
+                        <td>#[renderMethodUser req eUser]</td>
+                        <td className="text-center align-middle">
+                            #[maybe depositRequestTransactionCode (depositPayerAddressJson . entityVal) mayAddr]
                             </td>
-                            <td>
-                                #[renderSums req]
-                            </td>
-                            <td>
-                                #[renderMethodUser req eUser]
-                            </td>
-                            <td 
-                                className="text-center align-middle"
-                            >
-                                #[maybe depositRequestTransactionCode (depositPayerAddressJson . entityVal) mayAddr]
-                            </td>
-                            <td 
-                                className="align-middle"
-                            >
-                                <i 
-                                    className="accept-icon fas fa-check"
-                                />
-                            </td>
-                        </tr>
-                </tbody>                   
+                        <td className="align-middle">
+                            <i className="accept-icon fas fa-check" />
+                        </td>
+                    </tr>
+                </tbody>
                 <div
                     id="req-modal-#{fromSqlKey reqId}"
                     className="modal request-modal"
                     tabIndex={-1}
                     role="dialog"
                 >
-                    <div
-                        className="modal-dialog"
-                        role="document"
-                    >
-                        <div
-                            className="modal-content"
-                        >
-                            <div
-                                className="modal-header"
-                            >
-                                <p 
-                                    className="h5 modal-title text-center"
-                                >
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <p className="h5 modal-title text-center">
                                     <small>
                                         Заявка ##[fromSqlKey reqId]
                                     </small>
@@ -108,47 +68,31 @@ export default function () {
                                     data-dismiss="modal"
                                     aria-label="Close"
                                 >
-                                    <span
-                                        aria-hidden="true">&times;
-                                    </span>
+                                    <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <form
                                 method="post"
                                 action="@{OperatorAcceptDepositRequestR}"
                             >
-                                <div
-                                    className="modal-body"
-                                >
-                                    <div
-                                        className="form-group"
-                                    >
-                                        <div
-                                            className="input-group"
-                                        >
+                                <div className="modal-body">
+                                    <div className="form-group">
+                                        <div className="input-group">
                                             <input
                                                 className="form-control"
                                                 readOnly={true}
                                                 value="#{depositPayerAddressJson}"
-                                            >
-                                            </input>
-                                            <div 
-                                                className="input-group-append"
-                                            >
-                                                <span 
-                                                    className="input-group-text" 
-                                                    onClick="copyAddressAction(this)"
+                                            />
+                                            <div className="input-group-append">
+                                                <span
+                                                    className="input-group-text"
                                                 >
-                                                    <i 
-                                                        className="far fa-clipboard"
-                                                    />
+                                                    <i className="far fa-clipboard" />
                                                 </span>
                                             </div>
                                         </div>
                                     </div>
-                                    <div 
-                                        className="form-group"
-                                    >
+                                    <div className="form-group">
                                         <input
                                             id="#{fromSqlKey reqId}-deposit-code"
                                             className="form-control"
@@ -156,54 +100,47 @@ export default function () {
                                             readOnly={true}
                                             name="deposit-code"
                                             value="#{depositRequestTransactionCode}"
-                                        >
-                                        </input>
+                                        />
                                         <input
                                             id="#{fromSqlKey reqId}-deposit-id"
                                             className="form-control"
-                                            style={ { userSelect: 'none' } }
+                                            style={{ userSelect: 'none' }}
                                             type="hidden"
                                             readOnly={true}
                                             name="deposit-id"
                                             value="#{fromSqlKey reqId}"
-                                        >
-                                        </input>
-                                    <div
-                                        className="form-group"
-                                    >
+                                        />
+                                    </div>
+                                    <div className="form-group" >
                                         <p>
                                             <small>
                                                 _[MsgDepositTransactionCode]: #
                                                 #[depositRequestTransactionCode]
                                             </small>
-                                            <br/>
+                                            <br />
                                             <small>
-                                                _[MsgTransferMethod] #
+                                                _[MsgTransferMethod]
                                             </small>
                                             #[tmTShort depositRequestTransferMethod]
-                                            <br/>
+                                            <br />
                                             <small>
                                                 _[MsgUser] #
                                             </small>
-                                            <a
+                                            <NavLink
                                                 className="user-profile-link"
                                                 target="_blank"
-                                                href="/operator/user-history/#{fromSqlKey userId}"
+                                                to="/operator/user-history/#{fromSqlKey userId}"
                                             >
                                                 #[userIdent]
-                                            </a>
+                                            </NavLink>
                                         </p>
                                     </div>
-                                    <div
-                                        className="form-group"
-                                    >
+                                    <div className="form-group">
                                         <label
                                             htmlFor="#{fromSqlKey reqId}-deposit-amount"
                                         >
                                             Полученная сумма (#[currSign depositRequestCurrency])
-                                            <small
-                                                className="text-muted"
-                                            >
+                                            <small className="text-muted">
                                                 уточните сумму, полученную в переводе
                                             </small>
                                         </label>
@@ -217,9 +154,7 @@ export default function () {
                                             placeholder="0.00"
                                         />
                                     </div>
-                                    <div
-                                        className="form-group"
-                                    >
+                                    <div className="form-group">
                                         <input
                                             className="request-fee-val"
                                             type="hidden"
@@ -230,165 +165,97 @@ export default function () {
                                         >
                                             _[MsgDepositRequestAcceptFormStatsTitle]
                                         </p>
-                                        <p
-                                            className="h5"
-                                        >
+                                        <p className="h5">
                                             <small>
                                                 _[MsgActualCalculation]
                                             </small>
                                         </p>
-                                        <p 
-                                            className="actual text-muted"
-                                        >
+                                        <p className="actual text-muted">
                                             <span>
                                                 (#
                                             </span>
-                                            <span
-                                                className="income-val"
-                                            >
-                                                -#
+                                            <span className="income-val">
+                                                -
                                             </span>
-                                            <span
-                                                className="income-cur"
-                                            >
+                                            <span className="income-cur">
                                                 <small>
                                                     #[currSign depositRequestCurrency]
                                                 </small>
                                             </span>
-                                            <span>
-                                                - #
-                                            </span>
-                                            <span
-                                                className="fee-val"
-                                            >
-                                                -#
-                                            </span>
-                                            <span
-                                                className="fee-cur"
-                                            >   <small>
+                                            <span> - </span>
+                                            <span className="fee-val">-</span>
+                                            <span className="fee-cur">
+                                                <small>
                                                     #[currSign depositRequestCurrency]
                                                 </small>
-                                                #
                                             </span>
-                                            <span>
-                                                ) #
-                                            </span>
+                                            <span>) </span>
                                             <small>
                                                 x
-                                                <span
-                                                    className="ratio-val"
-                                                >
+                                                <span className="ratio-val">
                                                     #[renderRequestRatio req]
                                                 </span>
                                             </small>
-                                            <span>
-                                                = #
-                                            </span>
-                                            <span
-                                                className="total-val"
-                                            >
-                                                -#
-                                            </span>
-                                            <span
-                                                className="total-cur"
-                                            >
+                                            <span> = </span>
+                                            <span className="total-val">-</span>
+                                            <span className="total-cur">
                                                 <small>
                                                     #[currSign depositRequestTargetCurrency]
                                                 </small>
                                             </span>
                                         </p>
-                                        <p
-                                            className="text-muted"
-                                        >
-                                            <small>
-                                                Комиссия: #
-                                            </small>
-                                            <span
-                                                className="fee-percent-val"
-                                            >
+                                        <p className="text-muted">
+                                            <small>Комиссия: </small>
+                                            <span className="fee-percent-val">
                                                 #[renderReqFeeAsPct req]#
-                                                <small>
-                                                    %
-                                                </small>
+                                                <small>%</small>
                                             </span>
                                         </p>
-                                        <p
-                                            className="h5"
-                                        >
+                                        <p className="h5">
                                             <small>
                                                 _[MsgExpectedCalculation]
                                             </small>
                                         </p>
-                                        <p
-                                            className="expected text-muted"
-                                        >
-                                                <span>
-                                                    (#
-                                                </span>
-                                                <span
-                                                    className="income-val"
-                                                >
-                                                    #[cents2dblT depositRequestCentsAmount]#
-                                                </span>
-                                                <span
-                                                    className="income-cur"
-                                                >
-                                                    <small>
-                                                        #[currSign depositRequestCurrency]
-                                                    </small>
-                                                </span>
-                                                <span>
-                                                    - #
-                                                </span>
-                                                <span
-                                                    className="fee-val"
-                                                >
-                                                    #[cents2dblT depositRequestExpectedFeeCents]#
-                                                </span>
-                                                <span
-                                                    className="fee-cur"
-                                                >
-                                                    <small>
-                                                        #[currSign depositRequestCurrency]
-                                                    </small>
-                                                    #
-                                                </span>
-                                                <span>
-                                                    ) #
-                                                </span>
+                                        <p className="expected text-muted">
+                                            <span> (</span>
+                                            <span className="income-val">
+                                                #[cents2dblT depositRequestCentsAmount]#
+                                            </span>
+                                            <span className="income-cur">
                                                 <small>
-                                                    x
-                                                    <span
-                                                        className="ratio-val"
-                                                    >
-                                                        #[renderRequestRatio req]
-                                                    </span>
+                                                    #[currSign depositRequestCurrency]
                                                 </small>
-                                                <span>
-                                                    = #
+                                            </span>
+                                            <span> - </span>
+                                            <span className="fee-val">
+                                                #[cents2dblT depositRequestExpectedFeeCents]#
+                                            </span>
+                                            <span className="fee-cur">
+                                                <small>
+                                                    #[currSign depositRequestCurrency]
+                                                </small>
+                                            </span>
+                                            <span>) </span>
+                                            <small>
+                                                x
+                                                <span className="ratio-val">
+                                                    #[renderRequestRatio req]
                                                 </span>
-                                                <span
-                                                    className="total-val"
-                                                >
-                                                    #[renderRequestExpectedTotal req]#
-                                                </span>
-                                                <span
-                                                    className="total-cur"
-                                                >
-                                                    <small>
-                                                        #[currSign depositRequestTargetCurrency]
-                                                    </small>
-                                                </span>
-                                            </p>
-                                        </div>
+                                            </small>
+                                            <span> = </span>
+                                            <span className="total-val">
+                                                #[renderRequestExpectedTotal req]#
+                                            </span>
+                                            <span className="total-cur">
+                                                <small>
+                                                    #[currSign depositRequestTargetCurrency]
+                                                </small>
+                                            </span>
+                                        </p>
                                     </div>
                                 </div>
-                                <div
-                                    className="modal-footer"
-                                >
-                                    <div
-                                        className="container-fluid"
-                                    >
+                                <div className="modal-footer">
+                                    <div className="container-fluid">
                                         <div
                                             className="row justify-content-around"
                                         >
@@ -423,29 +290,18 @@ export default function () {
                     method="post"
                     action="@{OperatorDeclineDepositRequestR}"
                 >
-                    <div
-                        className="modal-dialog"
-                        role="document"
-                    >
-                        <div
-                            className="modal-content"
-                        >
-                            <div
-                                className="modal-header"
-                            >
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
                                 _[MsgDeclineReason]
                             </div>
-                            <div
-                                className="modal-body"
-                            >
+                            <div className="modal-body">
                                 <input
                                     type="hidden"
                                     name="request-id"
                                     value=""
                                 />
-                                <div
-                                    className="form-group"
-                                >
+                                <div className="form-group">
                                     <textarea
                                         required={true}
                                         className="form-control"
@@ -456,12 +312,8 @@ export default function () {
                             <div
                                 className="modal-footer justify-content-center"
                             >
-                                <div
-                                    className="container-fluid"
-                                >
-                                    <div
-                                        className="row justify-content-around"
-                                    >
+                                <div className="container-fluid">
+                                    <div className="row justify-content-around">
                                         <button
                                             id="close-decline-modal-btn"
                                             className="btn btn-lg btn-outline-primary"
@@ -481,6 +333,6 @@ export default function () {
                     </div>
                 </form>
             </div>
-        </div>
-    );
+        </div >
+    )
 }

@@ -1,42 +1,24 @@
 import React from 'react';
+
+
 export default function () {
     return (
         <div>
-            <table
-                className="request-list table table-striped"
-            >
+            <table className="request-list table table-striped">
                 <thead>
                     <tr>
-                        <th
-                            className="align-top"
-                        >
-                            Создана
+                        <th className="align-top">Создана</th>
+                        <th className="align-top">
+                            <span>Сумма к выводу</span>
+                            <br />
+                            <small>Пользователь</small>
                         </th>
-                        <th
-                            className="align-top"
-                        >
-                            <span>
-                                Сумма к выводу
-                            </span>
-                            <br/>
-                            <small>
-                                Пользователь
-                            </small>
+                        <th className="align-top">
+                            <span>Адрес получателя</span>
+                            <br />
+                            <small>Способ перевода</small>
                         </th>
-                        <th
-                            className="align-top"
-                        >
-                            <span>
-                                Адрес получателя
-                            </span>
-                            <br/>
-                            <small>
-                                Способ перевода
-                            </small>
-                        </th>
-                        <th
-                            className="align-top"
-                        />
+                        <th className="align-top" />
                     </tr>
                 </thead>
                 <tbody>
@@ -45,19 +27,15 @@ export default function () {
                         title="_{MsgProcessRequest}"
                         data-target="#req-modal-#{fromSqlKey reqId}"
                     >
-                        <td
-                            className="text-muted"
-                        >
-                            <small>
-                                #[reqDateT req]
-                            </small>
+                        <td className="text-muted">
+                            <small>#[reqDateT req]</small>
                         </td>
                         <td>
                             <b>
                                 #[cents2dblT withdrawalRequestCentsAmount]
                                 &nbsp;#[currSign userWalletCurrency]
                             </b>
-                            <br/>
+                            <br />
                             <small>
                                 <a
                                     className="user-profile-link"
@@ -70,21 +48,15 @@ export default function () {
                             </small>
                         </td>
                         <td>
-                            <small>
-                                #[tmTShort withdrawalRequestMethod]
-                            </small>
-                            <br/>
+                            <small>#[tmTShort withdrawalRequestMethod]</small>
+                            <br />
                             <span>
                                 #[renderAddress withdrawalRequestAddressee]
                             </span>
                         </td>
-                        <td
-                            className="align-middle"
-                        />
+                        <td className="align-middle" />
                     </tr>
-                    <i
-                        className="accept-icon fas fa-check"
-                    />
+                    <i className="accept-icon fas fa-check" />
                 </tbody>
                 <div
                     id="req-modal-#{fromSqlKey reqId}"
@@ -92,19 +64,10 @@ export default function () {
                     tabIndex={-1}
                     role="dialog"
                 >
-                    <div
-                        className="modal-dialog modal-lg"
-                        role="document"
-                    >
-                        <div
-                            className="modal-content"
-                        >
-                            <div
-                                className="modal-header"
-                            >
-                                <p 
-                                    className="h5 modal-title text-center"
-                                >
+                    <div className="modal-dialog modal-lg" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <p className="h5 modal-title text-center">
                                     <small>
                                         Заявка ##
                                         [fromSqlKey reqId]
@@ -116,34 +79,22 @@ export default function () {
                                     data-dismiss="modal"
                                     aria-label="Close"
                                 >
-                                    <span
-                                        aria-hidden="true"
-                                    >
-                                        &times;
-                                    </span>
+                                    <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <form
                                 method="post"
                                 action="@{OperatorAcceptWithdrawalRequestR}"
                             >
-                                <div
-                                    className="modal-body"
-                                >
-                                    <div
-                                        className="form-group"
-                                    >
-                                        <p
-                                            className="h4 text-center"
-                                        >
+                                <div className="modal-body">
+                                    <div className="form-group">
+                                        <p className="h4 text-center">
                                             АДРЕС ПОЛУЧАТЕЛЯ
                                         </p>
                                         <div
                                             className="alert alert-warning py-1"
                                         >
-                                            <p
-                                                className="text-center mt-3"
-                                            >
+                                            <p className="text-center mt-3">
                                                 #[tmTShort withdrawalRequestMethod]
                                             </p>
                                             <p
@@ -153,9 +104,7 @@ export default function () {
                                             </p>
                                         </div>
                                     </div>
-                                    <p
-                                        className="lead text-center"
-                                    >
+                                    <p className="lead text-center">
                                         Переведите #
                                         <big>
                                             #[cents2dblT (reqTransferAmount w r)]#
@@ -175,11 +124,9 @@ export default function () {
                                                 #[userIdent]
                                             </a>
                                         </small>
-                                        <br/>
+                                        <br />
                                         <small>
-                                            <span>
-                                                Удержано средств: #
-                                            </span>
+                                            <span>Удержано средств:</span>
                                         </small>
                                         <span>
                                             #[cents2dblT withdrawalRequestFrozenAmount]#
@@ -187,12 +134,12 @@ export default function () {
                                                 #[currSign userWalletCurrency]#
                                             </small>
                                         </span>
-                                        <br/>
+                                        <br />
                                         <small>
-                                                <span>
-                                                    Комиссия на текущий момент:
-                                                    #[renderWalletCurrentFee w]%
-                                                </span>
+                                            <span>
+                                                Комиссия на текущий момент:
+                                                #[renderWalletCurrentFee w]%
+                                            </span>
                                         </small>
                                         <span>
                                             = #[renderReqFee w r]
@@ -206,29 +153,22 @@ export default function () {
                                         type="hidden"
                                         name="withdrawal-id"
                                         value="#{fromSqlKey reqId}"
-                                    >
-                                    </input>
+                                    />
                                     <input
                                         id="#{fromSqlKey reqId}-withdrawal-fee"
                                         type="hidden"
                                         name="withdrawal-fee"
                                         value="#{show (withdrawalRequestFrozenAmount - reqTransferAmount w r)}"
-                                    >
-                                    </input>
+                                    />
                                     <input
                                         id="#{fromSqlKey reqId}-withdrawal-transfered"
                                         type="hidden"
                                         name="withdrawal-transfered"
                                         value="#{show (reqTransferAmount w r)}"
-                                    >
-                                    </input>
+                                    />
                                 </div>
-                                <div
-                                    className="modal-footer"
-                                >
-                                    <div
-                                        className="container-fluid"
-                                    >
+                                <div className="modal-footer">
+                                    <div className="container-fluid">
                                         <div
                                             className="row justify-content-around"
                                         >
@@ -263,29 +203,18 @@ export default function () {
                     method="post"
                     action="@{OperatorDeclineWithdrawalRequestR}"
                 >
-                    <div
-                        className="modal-dialog"
-                        role="document"
-                    >
-                        <div
-                            className="modal-content"
-                        >
-                            <div
-                                className="modal-header"
-                            >
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
                                 _[MsgDeclineReason]
                             </div>
-                            <div
-                                className="modal-body"
-                            >
+                            <div className="modal-body">
                                 <input
                                     type="hidden"
                                     name="request-id"
                                     value=""
                                 />
-                                <div
-                                    className="form-group"
-                                >
+                                <div className="form-group">
                                     <textarea
                                         required={true}
                                         className="form-control"
@@ -296,12 +225,8 @@ export default function () {
                             <div
                                 className="modal-footer justify-content-center"
                             >
-                                <div
-                                    className="container-fluid"
-                                >
-                                    <div
-                                        className="row justify-content-around"
-                                    >
+                                <div className="container-fluid">
+                                    <div className="row justify-content-around">
                                         <button
                                             id="close-decline-modal-btn"
                                             className="btn btn-lg btn-outline-primary"
@@ -322,5 +247,5 @@ export default function () {
                 </form>
             </div>
         </div>
-    );
+    )
 }
