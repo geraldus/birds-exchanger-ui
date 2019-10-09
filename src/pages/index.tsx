@@ -94,14 +94,18 @@ export default function() {
                     ^[clickableOrderW modalWrapId]
                     <div className="col-12 col-lg-6 mb-3 order-col">
                         ^[renderDomTable ExchangePzmRur False (paramsPair /= defPairDir
-                        ExchangePzmRur) statsDOM] ^[renderDomTable ExchangeOurPzm False (paramsPair
-                        /= defPairDir ExchangeOurPzm) statsDOM] ^[renderDomTable ExchangeOurRur
+                        ExchangePzmRur) statsDOM]
+                        ^[renderDomTable ExchangeOurPzm False (paramsPair
+                        /= defPairDir ExchangeOurPzm) statsDOM]
+                        ^[renderDomTable ExchangeOurRur
                         False (paramsPair /= defPairDir ExchangeOurRur) statsDOM]
                     </div>
                     <div className="col-12 col-lg-6 mb-3 order-col">
                         ^[renderDomTable ExchangePzmRur True (paramsPair /= defPairDir
-                        ExchangePzmRur) statsDOM] ^[renderDomTable ExchangeOurPzm True (paramsPair
-                        /= defPairDir ExchangeOurPzm) statsDOM] ^[renderDomTable ExchangeOurRur True
+                        ExchangePzmRur) statsDOM]
+                        ^[renderDomTable ExchangeOurPzm True (paramsPair
+                        /= defPairDir ExchangeOurPzm) statsDOM]
+                        ^[renderDomTable ExchangeOurRur True
                         (paramsPair /= defPairDir ExchangeOurRur) statsDOM]
                     </div>
                 </div>
