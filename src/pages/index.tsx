@@ -1,9 +1,68 @@
-import React from 'react';
+import React, { SyntheticEvent } from 'react';
 import homeLead from '@/assets/logo/logo-home-lead.png';
 import styles from './index.css';
+import { NavTab } from '@/containers/form/exchange/bootstrap/menu/item';
+import { formatMessage } from 'umi-plugin-locale';
 
 
-export default function() {
+export const currencyLabel = (c: string) => {
+    switch (true) {
+        case c.toLowerCase() == 'rub' || c.toLowerCase() == 'rur':
+            return '₽'
+            break
+        case c.toLowerCase() == 'pzm':
+            return 'Prizm'
+            break
+        case c.toLowerCase() == 'our' || c.toLowerCase() == 'ouro':
+            return 'Ouroboros'
+            break
+        default:
+            return c.toUpperCase()
+    }
+}
+
+export default function () {
+    const cancelDefault = (e: SyntheticEvent) => {
+        e.preventDefault()
+    }
+    const menuItemList = [
+        {
+            from: 'pzm',
+            to: 'rub',
+            label: 'PZM / ₽'
+        },
+        {
+            from: 'our',
+            to: 'pzm',
+            label: 'OUR / PZM'
+        },
+        {
+            from: 'our',
+            to: 'rub',
+            label: 'OUR / ₽',
+            active: true
+        },
+    ]
+    const menuItems = menuItemList.map(props => {
+        const { from, to, active, label } = props
+        const id = `${from}-${to}-pair`
+        const title = formatMessage({ id: 'exchange' }, {
+            from: currencyLabel(from),
+            to: currencyLabel(to)
+        })
+        return (
+            <NavTab
+                key={id}
+                id={id}
+                className={[from, to].join(' ')}
+                title={title}
+                active={active}
+                onClick={cancelDefault}
+            >
+                {label}
+            </NavTab>
+        )
+    })
     return (
         <div className={`${styles.masthead} pt-5`}>
             <div className="container mt-2">
@@ -26,36 +85,7 @@ export default function() {
                     <div className="row">
                         <div className="col-8 mx-auto">
                             <ul className="nav nav-tabs justify-content-center">
-                                <li className="nav-item mx-1">
-                                    <a
-                                        id="pzm-rur-pai"
-                                        className="nav-link pzm rur"
-                                        href="#"
-                                        title="#{messageRender MsgExchange} Prizm на рубли"
-                                    >
-                                        PZM / RUB (₽)
-                                    </a>
-                                </li>
-                                <li className="nav-item mx-1">
-                                    <a
-                                        id="our-pzm-pair"
-                                        className="nav-link our pzm"
-                                        href="#"
-                                        title="#{messageRender MsgExchange} Ouroboros на Prizm"
-                                    >
-                                        OUR / PZM
-                                    </a>
-                                </li>
-                                <li className="nav-item mx-1">
-                                    <a
-                                        id="our-rur-pair"
-                                        className="nav-link our rur"
-                                        href="#"
-                                        title="#{messageRender MsgExchange} Ouroboros на рубли"
-                                    >
-                                        OUR / RUB (₽)
-                                    </a>
-                                </li>
+                                {menuItems}
                             </ul>
                         </div>
                     </div>
