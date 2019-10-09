@@ -1,5 +1,7 @@
 {
   "private": true,
+  "name": "birds-exchanger-ui",
+  "version": "0.0.1",
   "scripts": {
     "start": "umi dev",
     "build": "umi build",
