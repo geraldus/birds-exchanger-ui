@@ -2,7 +2,6 @@ import { AnyAction } from 'redux';
 import { EffectsCommandMap } from 'dva/index';
 import { fetchAppConfig } from '@/services/app';
 import produce from 'immer';
-import pathToRegexp from 'path-to-regexp';
 
 
 export interface AppAuth {
