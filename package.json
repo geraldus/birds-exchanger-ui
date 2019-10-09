@@ -1,5 +1,7 @@
 {
   "private": true,
+  "name": "birds-exchanger-ui",
+  "version": "0.0.1",
   "scripts": {
     "start": "umi dev",
     "build": "umi build",
@@ -9,10 +11,21 @@
     "precommit": "lint-staged"
   },
   "dependencies": {
-    "dva": "^2.6.0-beta.6",
+    "@types/axios": "^0.14.0",
+    "@types/dva": "^1.1.0",
+    "@types/jsonp": "^0.2.0",
+    "@types/lodash": "^4.14.141",
+    "@types/qs": "^6.5.3",
     "antd": "^3.19.5",
+    "axios": "^0.19.0",
+    "dva": "^2.4.1",
+    "immer": "^4.0.1",
+    "jsonp": "^0.2.1",
+    "lodash": "^4.17.15",
+    "qs": "^6.9.0",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "umi-plugin-dva": "^1.9.0"
   },
   "devDependencies": {
     "@types/jest": "^23.3.12",
@@ -37,8 +50,14 @@
     "umi-types": "^0.3.0"
   },
   "lint-staged": {
-    "*.{ts,tsx}": ["tslint --fix", "git add"],
-    "*.{js,jsx}": ["eslint --fix", "git add"]
+    "*.{ts,tsx}": [
+      "tslint --fix",
+      "git add"
+    ],
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "engines": {
     "node": ">=8.0.0"
