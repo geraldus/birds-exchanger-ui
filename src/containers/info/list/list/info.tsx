@@ -11,11 +11,8 @@ export default function () {
                 <a
                     title="_{MsgDetails}"
                     href="@{InfoViewR (infoAlias info)}"
-                >
-                    #[infoTitle info]
-                    <small
-                        className="text-muted"
-                    >
+                >#[infoTitle info]
+                    <small className="text-muted">
                         (#[renderDateTimeRow l tzo (infoCreated info)])
                     </small>
                 </a>

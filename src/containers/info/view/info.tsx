@@ -14,22 +14,15 @@ export default function () {
                     type="hidden"
                     name="info-id"
                     value="#{fromSqlKey infoId}"
-                />
-                ^[form]
+                />^[form]
                 <button
                     id="save-button"
                     className="btn btn-outline-primary mt-2"
-                >
-                    _[MsgSave]
+                >_[MsgSave]
                 </button>
             </form>
-            <div
-                id="#{titleIdent}"
-            >
-                <h1>
-                    #[infoTitle info]
-                ^[dateRow l tzo (infoCreated info)]
-                </h1>
+            <div id="#{titleIdent}">
+                <h1>#[infoTitle info] ^[dateRow l tzo (infoCreated info)]</h1>
             </div>
             <div
                 id="#{thumbIdent}"
@@ -44,8 +37,7 @@ export default function () {
             <div
                 id="#{contentIdent}"
                 className="info-content"
-            >
-                #[preEscapedToMarkup (infoContentHtml info)]
+            >#[preEscapedToMarkup (infoContentHtml info)]
             </div>
         </div>
     )
