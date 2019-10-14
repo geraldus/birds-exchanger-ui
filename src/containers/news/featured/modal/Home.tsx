@@ -39,9 +39,10 @@ export default function () {
                                     <span
                                         id="#{wrapId}-remember-trigger"
                                         className="text-muted"
-                                    >_[MsgDoNotShowAgain]
+                                    >
+                                        _[MsgDoNotShowAgain]
                                     </span>
-                                <div style={ { float: 'right' } }>
+                                <div style={{ float: 'right' }}>
                                     <a href="@{InfoViewR (infoAlias info)}">_[MsgReadMore]</a>
                                 </div>
                             </div>

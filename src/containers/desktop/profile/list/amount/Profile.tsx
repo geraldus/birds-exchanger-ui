@@ -5,7 +5,8 @@ export default function () {
     return (
         <div>
             <span>
-                <big>#[centsT]#
+                <big>
+                    #[centsT]#
                     <small className="text-muted">\#[sign]</small>
                 </big>
             </span>

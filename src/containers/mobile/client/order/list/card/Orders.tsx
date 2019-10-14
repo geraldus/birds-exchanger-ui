@@ -14,14 +14,16 @@ export default function () {
                     </div>
                     <div className="col-5 text-right">
                         <a href="@{ClientOrderViewR oid}">
-                            <small>#[cents2dblT exchangeOrderAmountCents]
+                            <small>
+                                #[cents2dblT exchangeOrderAmountCents]
                                 <small className="text-muted">#[currSign outCurrency]</small>
                             </small>
                         </a>
                     </div>
                     <div className="col-4 text-right">
                         <a href="@{ClientOrderViewR oid}">
-                            <small>#[cents2dblT inAmountCents]&nbsp;#
+                            <small>
+                                #[cents2dblT inAmountCents]&nbsp;#
                                 <small className="text-muted">#[currSign inCurrency]</small>
                             </small>
                         </a>

@@ -10,7 +10,8 @@ export default function () {
                 <small className="text-muted">#[currSign c]</small>
             </big>
             <br/>
-            <small className="text-muted">#[sign]#[cents2dblT f]#
+            <small className="text-muted">
+                #[sign]#[cents2dblT f]#
                 <small>#[currSign c] ^[d]</small>
             </small>
         </div>

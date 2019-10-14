@@ -17,7 +17,8 @@ export default function () {
                 encType="#{enctype}"
                 action="@{WithdrawalCreateR}"
                 className="col-12 col-sm-10 col-md-8 mx-auto"
-            >^[widget]
+            >
+                ^[widget]
                 <div className="form-group row justify-content-center">
                     <button
                         className="btn btn-lg btn-outline-primary mt-2"

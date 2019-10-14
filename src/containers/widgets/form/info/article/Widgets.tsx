@@ -19,7 +19,8 @@ export default function () {
                 <label
                     className="form-check-label"
                     htmlFor="#{featuredIdent'}"
-                >Продивигать новость
+                >
+                    Продивигать новость
                 </label>
             </div>
             <div className="form-group mb-3">
